@@ -11,7 +11,7 @@ npm i
 ## Run application
 
 ```shell  
-$ npm run dev
+npm run dev
 ```
 
 ## Deployment capture

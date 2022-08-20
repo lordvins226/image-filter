@@ -34,16 +34,16 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
       return res.status(400)
         .send(`image url is required`);
     }
-    const filteredPath = await filterImageFromURL(image_url);
-    
-    localFiles.push(filteredPath);  
+    filterImageFromURL(image_url).then((filteredPath) => {
+      localFiles.push(filteredPath);
+      return res.status(200).sendFile(filteredPath, (error) => {
+        if (error) {
+          res.sendStatus(500);
+        }
+        deleteLocalFiles(localFiles);
+      });
+    }).catch(() => res.status(422).send(`malformed image`));
 
-    return res.status(200).sendFile(filteredPath, (error) => {
-      if (error) {
-        res.sendStatus(500);
-      }
-      deleteLocalFiles(localFiles);
-    });
   });
 
   /**************************************************************************** */

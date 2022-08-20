@@ -2,6 +2,8 @@
 
 Application URL: <http://image-filter-kev-dev.us-east-1.elasticbeanstalk.com/>
 
+Repo URL : <https://github.com/lordvins226/image-filter>
+
 ## Install dependencies
 
 ```shell  
@@ -15,4 +17,4 @@ npm run dev
 ```
 
 ## Deployment capture
-![capture](/assets/capture.png)
+![capture](/deployment_screenshot/capture.png)
